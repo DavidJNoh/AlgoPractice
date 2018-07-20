@@ -1,0 +1,52 @@
+<script>
+        function greaterThanY(arr){
+            var sum=0;
+            for(var i=0; i<arr.length; i++){
+                if(arr[i]>sum) sum++
+            }
+            return sum;
+        }
+        console.log(greaterThanY)
+    </script>
+    <script>
+        function maxminavg(arr){
+            var max=arr[0];
+            var min=arr[0];
+            var avg=arr[0];
+            for(var i=1;i<arr.length; i++){
+                if(arr[i]>max) max=arr[i];
+                if(arr[i]<min) min=arr[i];
+                sum+=arr[i];
+            }
+            var avg= sum/arr.lengthl;
+            var arrnew=[max,min,avg];
+            return arrnew;
+        }
+    </script>
+    <script>
+        function bepositive(arr){
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]<0) arr[i]="Dojo";
+            }
+        }
+    </script><!DOCTYPE <!DOCTYPE html>
+
+
+<script>
+    function cut(myarr,start,end){
+        var sum=0
+        for(var i = start; i <= end; i++){
+            myarr[i]=myarr[i+(end-start+1)];
+            sum++;
+        }
+        for(i=1;i<=sum;i++){
+            
+            myarr.pop();
+        }
+        console.log(myarr)
+    }
+cut([20,30,40,50,60,70],2,4)
+</script>
+
+
+
