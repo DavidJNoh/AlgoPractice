@@ -1,0 +1,149 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<script>
+    function biggestSize(arr){
+        for(var i=0;i<arr.length;i++){
+            if(arr[i>0]) arr[i]="big"
+        }
+        return arr;
+    }
+    function printLowReturnHigh(arr){
+        var low=i[0];
+        var high=i[0];
+        for(var i=1; i<arr.length;i++){
+            if (arr[i]<low) low=arr[i];
+            if (arr[i]>high) high=arr[i];
+        }
+        console.log(low);
+        return high;
+    }
+    function printOneReturnAnother(arr){
+        for (var i=0; i<arr.length; i++){
+            if (arr[i]%2==1){
+                console.log(arr[arr.length-2]);
+                return arr[i];
+            }
+            else if(i==arr.length-1){
+                console.log(arr[arr.length-2]);
+                return("NoOddNumberFound");
+            }
+        }
+    }
+// console.log (printOneReturnAnother([6,4,6,4,6,4,6,4,2,10,11]));
+    function doublevision(arr){
+        for(var i=0; i<arr.length;i++){
+            arr[i]=arr[i*2]
+        }
+        return arr;
+    }
+    function countPositives(arr){
+        var count=0
+        for(var i=0;i<arr.length;i++){
+            if(i>0) count++
+        }
+        arr[arr.length-1]=count;
+        return arr;
+    }
+// console.log (countPositives([-1,1,1,1,1,1,1,1,1,1]));
+    function evenAndOdds(arr){
+        var osum=0
+        var esum=0
+        for(var i=0; i<arr.length; i++){
+            if (arr[i]%2==1){
+                osum++;
+                esum=0;
+                if(osum==3){ 
+                    console.log("That's odd!");
+                    osum=0;
+                }
+            }
+            else if(arr[i]%2==0){
+                esum++;
+                osum=0;
+                if(esum==3){
+                    console.log("Even more so");
+                    esum=0;
+                }
+            }
+        }
+    }
+// evenAndOdds([1,2,3,4,4,4,5,6,7,7,7,8,9,10,10,10,10]);
+    function incrementTheSeconds(arr){
+        for(var i=0; i<arr.length;i++){
+            if(i%2==1){
+                arr[i]=arr[i]+1;
+            }
+        }
+        console.log(arr);
+        return arr;
+    }
+    console.log(incrementTheSeconds([1,2,3,4,5,6]));
+    function previousLengths(arr){
+        var arrnew=[];
+        for(var i=0;i<arr.length;i++){
+            if(i==0) {
+                arrnew.push(arr[i]);
+                }
+            else if(i>0){
+                arrnew.push(arr[i-1].length);
+            }
+        }
+        return arrnew;
+    }
+// console.log(previousLengths(["Hello","Coding!","Dojo"]));
+    function addSevenToMost(arr){
+        for(var i=1;i<arr.length;i++){
+            arr[i]=arr[i]+7;
+        }
+    }
+    function reverseArray(arr){
+        for(var i=0;i<arr.length/2;i++){
+            var temp=arr[i];
+            arr[i]=arr[arr.length-1-i];
+            arr[arr.length-1-i]=temp;
+        }
+    }
+    function outlookNegative(arr){
+        for(var i=0; i<arr.length;i++){
+            if (arr[i]>0){
+                arr[i]=arr[i]*(-1);
+            }
+        }
+        return arr;
+    }
+    function alwaysHungry(arr){
+            var count=0;
+            for(var i=0;i<arr.length;i++){
+                if (arr[i]=="food"){
+                    console.log("Yummy");
+                    count++;
+                }
+                else if(i==arr.length-1) {
+                    if(count==0) console.log("I'm hungry")
+                }
+            }
+            
+        }
+    // alwaysHungry(["You","Book","Why"])
+    function swapTowardsTheCenter(arr){
+        for (var i=0; i<arr.length/2;i++){
+            if(i==0){
+                var temp=arr[i];
+                arr[i]=arr[arr.length-1-i];
+                arr[arr.length-1-i]=temp;
+            }
+            if(i==2){
+                var temp=arr[i];
+                arr[i]=arr[arr.length-1-i];
+                arr[arr.length-1-i]=temp;
+            }
+        }
+        console.log (arr);
+    }
+    // swapTowardsTheCenter([1,2,3,4,5,6])
+    function scaleTheArray(arr){
+        for (var i=0;i<arr.length;i++){
+            arr[i]=arr[i]*num;
+        }
+    }
+</script>
