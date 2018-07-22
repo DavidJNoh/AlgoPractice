@@ -1,0 +1,164 @@
+<html>
+<script>
+    function sigma(){
+        var sum=x;
+        for(var i=1;i<x;i++){
+            sum+=i;
+        }
+    }
+    function factorial(){
+        if (x==1) return x;
+        var sum=1;
+        for(var i=2;i<=x;i++){
+            sum*=i;
+        }
+    }
+    function fibonacci(x){
+        if(x==0) return x;
+        if(x==1) return x;
+        if(x==2) return 1;
+        var arr =[0,1];
+        for(var i=2; i<=x;i++){
+            arr.push(arr[i-2]+arr[i-1]);
+        }
+    }
+        // console.log(arr(arr.lenght-1))
+    function secondLargest(arr){
+        var max=arr[0];
+        var ndmax=arr[0];
+        for(var i=0;i<arr.length;i++){
+            if(arr[i]>max){
+                ndmax=max;
+                max=arr[i];
+            }
+            else if(arr[i]>ndmax){
+                ndmax=arr[i]
+            }
+        }
+        console.log(ndmax)
+    }
+    // secondLargest([1,3,5,2,4,64,2,1,30,21,45]);
+    function secondtoLast(arr){
+        if (arr.length<2) return "null";
+        else console.log(arr[arr.length-2]);
+    }
+    function nthtolast(arr,x){
+        if (arr.length<x) return "null";
+        else console.log(arr[arr.length-1-x])
+    }
+    function doubleTrouble(arr){
+        var ori=arr.length;
+        arr.length*=2
+            for(var i=ori-1;i>=0;i--){
+                arr[i*2]=arr[i*2+1]=arr[i]
+            }
+        return arr;
+    }
+    function fib(n){
+        if (n==0 || n==1){
+            return n;
+        }
+        return fib(n-2)+fib(n-1);
+    }
+    // console.log(fib(5));
+</script>
+<html>
+<head>
+	<title>Recursive Fill</title>
+
+	<style type="text/css">
+	* {
+		margin:0px;
+		padding:0px;
+	}
+	body{
+		background-color:black;
+	}
+	.row div{
+		width:50px;
+		height:50px;
+		display:inline-block;
+	}
+	.white{
+		background-color:white;
+	}
+	.red{
+		background-color:red;
+	}
+	.yellow{
+		background-color:yellow;
+	}
+	.blue{
+		background-color:blue;
+	}
+	.green{
+		background-color:green;
+	}
+	</style>
+</head>
+<body>
+
+	<div id='container'></div>
+
+	<script type="text/javascript">
+		var world = [
+			[1,1,1,0,0,0,0,3,2,2],
+			[0,0,0,0,1,0,0,3,3,3],
+			[0,2,2,0,1,0,0,0,0,0],
+			[0,2,2,0,1,1,1,1,0,0],
+			[0,2,2,0,1,0,0,0,0,3],
+			[0,2,2,0,1,0,0,3,3,3],
+			[0,0,0,0,1,0,0,3,3,3]];
+		var mapping = {
+			0: 'white',
+			1: 'red',
+			2: 'yellow',
+			3: 'blue',
+			4: 'green'
+		}
+		function drawWorld()
+		{
+			var output = '';
+			for(var i=0; i<world.length; i++)
+			{
+				output += '<div class="row">';
+				for(var j=0; j<world[i].length; j++)
+				{
+					output += "<div class='"+mapping[world[i][j]]+"'></div>";
+				}
+				output += '</div>';
+			}
+			document.getElementById('container').innerHTML = output;
+			// console.log(output);
+		}
+		document.onclick = function(e)
+		{
+			// console.log('Coordinate Clicked', e.x, e.y);
+			var x = Math.floor(e.x/50);
+			var y = Math.floor(e.y/50);
+			// console.log('X, Y', x, y);
+			// console.log('Original Color', world[y][x]);
+			console.log('Replace color', world[y][x], ' with color 4 starting from x:', x, 'y:', y);
+			fill(x, y, world[y][x], 4);
+		}
+		function fill(x,y,original_color, color)
+		{
+            //boundary restrictions
+			if(y<0 || y>=world.length || x<0 || x>=10)
+				return false;
+			//if the current color is NOT the same as the original color you're trying to replace, get out of the fill function
+			if(world[y][x] != original_color)
+				return false;
+			world[y][x] = color;
+			fill(x,y-1,original_color, color);
+			fill(x,y+1,original_color, color);
+			fill(x-1,y,original_color, color);
+			fill(x+1,y,original_color, color);
+			drawWorld();
+			
+		}
+		drawWorld();
+	</script>
+
+</body>
+</html>
